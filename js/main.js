@@ -1,8 +1,8 @@
-// js/main.js — Shared scripts for Ushaqlarimiza Öyrədək
+// js/main.js
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ── NAVBAR SCROLL SHRINK ── */
+  /* -- NAVBAR SCROLL SHRINK -- */
   const navbar = document.querySelector('.navbar');
   if (navbar) {
     window.addEventListener('scroll', () => {
@@ -10,14 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  /* ── MOBILE NAV TOGGLE ── */
+  /* -- MOBILE NAV TOGGLE -- */
   const toggle = document.querySelector('.nav-toggle');
   const mobileNav = document.querySelector('.mobile-nav');
   if (toggle && mobileNav) {
     toggle.addEventListener('click', () => {
       const open = mobileNav.classList.toggle('open');
       toggle.setAttribute('aria-expanded', open);
-      // Animate hamburger → X
       const spans = toggle.querySelectorAll('span');
       if (open) {
         spans[0].style.transform = 'translateY(7px) rotate(45deg)';
@@ -29,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         spans[2].style.transform = '';
       }
     });
-    // Close on link click
     mobileNav.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         mobileNav.classList.remove('open');
@@ -38,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ── ACTIVE NAV LINK ── */
+  /* -- ACTIVE NAV LINK -- */
   const currentPage = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a, .mobile-nav a').forEach(a => {
     const href = a.getAttribute('href');
@@ -47,70 +45,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* ── ANIMATED NUMBER COUNTERS ── */
+  /* -- ANIMATED NUMBER COUNTERS -- */
   const counters = document.querySelectorAll('[data-count]');
   if (counters.length > 0) {
-    const easeOutQuad = t => t * (2 - t);
+    const easeOut = t => t * (2 - t);
     const animateCounter = (el) => {
       const target = parseFloat(el.dataset.count);
       const suffix = el.dataset.suffix || '';
       const prefix = el.dataset.prefix || '';
-      const decimals = el.dataset.decimals ? parseInt(el.dataset.decimals) : 0;
       const duration = 1800;
       let start = null;
-      const step = (timestamp) => {
-        if (!start) start = timestamp;
-        const elapsed = timestamp - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = easeOutQuad(progress);
-        const current = target * eased;
-        el.textContent = prefix + (decimals > 0 ? current.toFixed(decimals) : Math.floor(current)) + suffix;
-        if (progress < 1) requestAnimationFrame(step);
-        else el.textContent = prefix + (decimals > 0 ? target.toFixed(decimals) : target) + suffix;
+      const step = (ts) => {
+        if (!start) start = ts;
+        const p = Math.min((ts - start) / duration, 1);
+        const val = target * easeOut(p);
+        el.textContent = prefix + Math.floor(val) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = prefix + target + suffix;
       };
       requestAnimationFrame(step);
     };
-
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.dataset.animated) {
-          entry.target.dataset.animated = 'true';
-          animateCounter(entry.target);
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !e.target.dataset.animated) {
+          e.target.dataset.animated = 'true';
+          animateCounter(e.target);
         }
       });
     }, { threshold: 0.4 });
-
-    counters.forEach(c => counterObserver.observe(c));
+    counters.forEach(c => obs.observe(c));
   }
 
-  /* ── SCROLL REVEAL ── */
+  /* -- SCROLL REVEAL -- */
   const reveals = document.querySelectorAll('.reveal');
   if (reveals.length > 0) {
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(el => revealObserver.observe(el));
+    }, { threshold: 0.10, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => ro.observe(el));
   }
 
-  /* ── CONTACT FORM (footer) ── */
+  /* -- CONTACT FORM -- */
   const contactForm = document.querySelector('.contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', e => {
       e.preventDefault();
       const btn = contactForm.querySelector('button');
-      const original = btn.textContent;
-      btn.textContent = '✓ Message Sent!';
+      const orig = btn.textContent;
+      btn.textContent = 'Sent!';
       btn.style.background = '#6FBF9A';
-      setTimeout(() => {
-        btn.textContent = original;
-        btn.style.background = '';
-        contactForm.reset();
-      }, 3000);
+      setTimeout(() => { btn.textContent = orig; btn.style.background = ''; contactForm.reset(); }, 3000);
     });
   }
 
