@@ -147,7 +147,7 @@ h4{font-size:1rem;font-weight:600}
 }
 .hero-bg{
   position:absolute;inset:0;
-  background-image:url('https://placehold.co/1600x900/0245A8/A7BBFF?text=+');
+  background-image: url('../images/landingpage/background.png');
   background-size:cover;background-position:center;opacity:.10
 }
 .hero-shapes{position:absolute;inset:0;overflow:hidden;pointer-events:none}
