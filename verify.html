@@ -4,36 +4,155 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Verify Certificate -- Ushaqlarimiza Oyredek</title>
-  <meta name="description" content="Verify the authenticity of a certificate issued by Ushaqlarimiza Oyredek. Enter your certificate code to check its validity instantly."/>
+  <meta name="description" content="Verify the authenticity of a certificate issued by Ushaqlarimiza Oyredek."/>
   <link rel="stylesheet" href="css/style.css"/>
   <style>
-    .verify-intro{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:64px}
-    .verify-how h3{margin-bottom:16px;color:var(--blue-dark)}
-    .verify-how p{color:var(--muted);font-size:.93rem;line-height:1.8;margin-bottom:20px}
-    .verify-steps{display:flex;flex-direction:column;gap:14px}
-    .verify-step{
-      display:flex;gap:16px;align-items:flex-start;
+    /* ── Centred verify page ── */
+    .verify-page-wrap{
+      min-height:70vh;display:flex;align-items:center;
+      padding:72px 0;
+    }
+    .verify-center{
+      max-width:560px;width:100%;margin:0 auto;
+    }
+    .verify-card{
+      background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+      padding:48px 44px;box-shadow:var(--shadow-md);
+    }
+    .verify-card-head{
+      text-align:center;margin-bottom:32px;
+    }
+    .verify-card-head h2{font-size:1.7rem;margin-bottom:8px}
+    .verify-card-head p{color:var(--muted);font-size:.9rem}
+    .verify-field-group{display:flex;gap:10px;margin-bottom:14px}
+    .verify-input{
+      flex:1;border:2px solid var(--border);border-radius:12px;
+      padding:14px 18px;font-family:var(--font-body);font-size:.95rem;
+      color:var(--dark);outline:none;transition:border-color var(--dur) var(--ease)
+    }
+    .verify-input:focus{border-color:var(--blue)}
+    .verify-btn{
+      padding:14px 24px;background:var(--blue);color:#fff;
+      border:none;border-radius:12px;font-family:var(--font-body);
+      font-size:.95rem;font-weight:600;cursor:pointer;
+      transition:all var(--dur) var(--ease);white-space:nowrap
+    }
+    .verify-btn:hover{background:var(--blue-dark);transform:translateY(-2px)}
+    .verify-hint{
+      padding:12px 16px;background:var(--lavender-bg);
+      border-radius:10px;font-size:.82rem;color:var(--muted);margin-bottom:24px
+    }
+    .verify-hint strong{color:var(--blue-dark)}
+
+    /* Collapsible instructions */
+    .how-toggle{
+      display:flex;align-items:center;gap:8px;
+      background:none;border:none;cursor:pointer;
+      font-family:var(--font-body);font-size:.82rem;font-weight:600;
+      color:var(--blue);padding:0;margin-bottom:0;transition:color var(--dur)
+    }
+    .how-toggle:hover{color:var(--blue-dark)}
+    .how-toggle .arrow{
+      display:inline-block;transition:transform .25s var(--ease);font-size:.7rem
+    }
+    .how-toggle.open .arrow{transform:rotate(90deg)}
+    .how-body{
+      display:none;margin-top:16px;padding:20px;
       background:var(--lavender-bg);border:1px solid var(--lavender);
-      border-radius:var(--radius-sm);padding:16px 20px
+      border-radius:var(--radius-sm)
     }
-    .verify-step-num{
-      width:32px;height:32px;border-radius:50%;
-      background:var(--blue);color:#fff;font-weight:800;font-size:.85rem;
-      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    .how-body.open{display:block}
+    .how-step{
+      display:flex;gap:12px;align-items:flex-start;margin-bottom:12px
     }
-    .verify-step-text h4{font-family:var(--font-body);font-size:.88rem;font-weight:700;color:var(--dark);margin-bottom:4px}
-    .verify-step-text p{font-size:.82rem;color:var(--muted);line-height:1.6}
-    .security-badge{
-      display:flex;align-items:center;gap:10px;
-      background:#F0FBF7;border:1px solid #B2DFC8;
-      border-radius:10px;padding:14px 18px;margin-top:20px;
-      font-size:.82rem;color:#2E7D57;font-weight:600
+    .how-step:last-child{margin-bottom:0}
+    .how-num{
+      width:26px;height:26px;border-radius:50%;flex-shrink:0;
+      background:var(--blue);color:#fff;font-weight:800;font-size:.78rem;
+      display:flex;align-items:center;justify-content:center
     }
-    .faq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
-    .faq-card{border-radius:var(--radius);padding:28px 24px;border:1px solid}
-    @media(max-width:768px){
-      .verify-intro{grid-template-columns:1fr;gap:40px}
-      .faq-grid{grid-template-columns:1fr}
+    .how-text{font-size:.82rem;color:var(--muted);line-height:1.6;padding-top:3px}
+
+    /* Result area */
+    #verify-result{margin-top:28px}
+    .result-valid,.result-revoked,.result-error{
+      border-radius:var(--radius);padding:24px 28px;border:1px solid
+    }
+    .result-valid{background:#F0FBF7;border-color:#6FBF9A}
+    .result-revoked{background:#FFF5F5;border-color:#E57373}
+    .result-error{background:var(--gold-light);border-color:var(--gold-soft)}
+    .result-badge{
+      display:inline-flex;align-items:center;gap:8px;font-size:.75rem;font-weight:700;
+      letter-spacing:.10em;text-transform:uppercase;padding:5px 14px;
+      border-radius:50px;margin-bottom:16px
+    }
+    .result-badge.valid{background:#6FBF9A;color:#fff}
+    .result-badge.revoked{background:#E57373;color:#fff}
+    .result-badge.not-found{background:var(--gold);color:var(--dark)}
+    .result-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:9px;font-size:.88rem}
+    .result-row:last-child{margin-bottom:0}
+    .result-key{font-weight:700;color:var(--dark);min-width:130px;flex-shrink:0}
+    .result-val{color:var(--muted)}
+
+    /* View certificate button */
+    .view-cert-btn{
+      display:inline-flex;align-items:center;gap:8px;
+      margin-top:18px;padding:10px 20px;border-radius:50px;
+      background:var(--blue);color:#fff;font-size:.85rem;font-weight:600;
+      border:none;cursor:pointer;font-family:var(--font-body);
+      transition:all var(--dur) var(--ease)
+    }
+    .view-cert-btn:hover{background:var(--blue-dark);transform:translateY(-2px)}
+
+    /* Certificate image modal */
+    .cert-modal-overlay{
+      display:none;position:fixed;inset:0;z-index:2000;
+      background:rgba(13,27,42,.75);backdrop-filter:blur(6px);
+      align-items:center;justify-content:center;padding:24px
+    }
+    .cert-modal-overlay.open{display:flex}
+    .cert-modal{
+      background:#fff;border-radius:var(--radius);
+      max-width:780px;width:100%;max-height:90vh;
+      overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.30);
+      position:relative;display:flex;flex-direction:column
+    }
+    .cert-modal-bar{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:16px 20px;border-bottom:1px solid var(--border);
+      flex-shrink:0
+    }
+    .cert-modal-bar h4{font-family:var(--font-body);font-size:.9rem;font-weight:700;color:var(--dark)}
+    .cert-modal-close{
+      background:none;border:none;cursor:pointer;
+      font-size:1.4rem;color:var(--muted);line-height:1;padding:4px 8px;
+      transition:color var(--dur)
+    }
+    .cert-modal-close:hover{color:var(--dark)}
+    .cert-modal-img{
+      flex:1;overflow:auto;padding:24px;
+      display:flex;align-items:center;justify-content:center;
+      background:var(--beige-bg)
+    }
+    .cert-modal-img img{
+      max-width:100%;max-height:65vh;
+      border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,.12)
+    }
+    .cert-modal-missing{
+      text-align:center;padding:48px 24px;color:var(--muted);font-size:.9rem
+    }
+
+    /* FAQ row */
+    .faq-row{
+      display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px
+    }
+    .faq-card{border-radius:var(--radius);padding:22px 24px;border:1px solid}
+    .faq-card h4{font-family:var(--font-body);font-size:.85rem;font-weight:700;margin-bottom:8px;color:var(--dark)}
+    .faq-card p{font-size:.82rem;color:var(--muted);line-height:1.7}
+    @media(max-width:600px){
+      .verify-card{padding:32px 24px}
+      .verify-field-group{flex-direction:column}
+      .faq-row{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -45,11 +164,10 @@
     <div class="nav-inner">
       <a class="nav-brand" href="index.html" aria-label="Ushaqlarimiza Oyredek home">
         <div class="nav-logo">
-          <img src="images/uologoclear.png" alt="Ushaqlarimiza Oyredek logo"/>
+          <img src="images/landingpage/uologoclear.png" alt="Ushaqlarimiza Oyredek logo"/>
         </div>
         <div class="nav-brand-text">
           <span class="nav-brand-name">Ushaqlarimiza Oyredek</span>
-          <span class="nav-brand-tag">~ No child left behind ~</span>
         </div>
       </a>
       <div class="nav-links">
@@ -77,96 +195,86 @@
   <a href="index.html#donate" class="btn btn-gold">Donate</a>
 </nav>
 
-<!-- ===== PAGE HERO ===== -->
-<section class="page-hero" aria-labelledby="verify-page-heading">
+<!-- ===== VERIFY ===== -->
+<div class="verify-page-wrap">
   <div class="container">
-    <div class="page-hero-content">
-      <div class="section-label">Authenticity Check</div>
-      <h1 id="verify-page-heading">Certificate Verification</h1>
-      <p>Instantly verify whether a certificate issued by Ushaqlarimiza Oyredek is authentic and valid.</p>
+    <div class="verify-center">
+
+      <div class="verify-card">
+        <div class="verify-card-head">
+          <div class="section-label" style="margin-bottom:12px">Authenticity Check</div>
+          <h2>Certificate Verification</h2>
+          <p>Enter the certificate code to instantly confirm its authenticity.</p>
+        </div>
+
+        <div class="verify-field-group">
+          <input
+            type="text"
+            id="cert-code"
+            class="verify-input"
+            placeholder="e.g. UO-2024-001"
+            aria-label="Certificate code"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button id="verify-btn" class="verify-btn">Verify</button>
+        </div>
+
+        <div class="verify-hint">
+          <strong>Tip:</strong> Codes start with <strong>UO-</strong> and are not case-sensitive.
+        </div>
+
+        <!-- Collapsible instructions -->
+        <button class="how-toggle" id="how-toggle" aria-expanded="false">
+          <span class="arrow">&#9656;</span> How does this work?
+        </button>
+        <div class="how-body" id="how-body" role="region">
+          <div class="how-step">
+            <div class="how-num">1</div>
+            <div class="how-text">Find the unique code on your certificate document. It starts with <strong>UO-</strong> followed by the year and a number.</div>
+          </div>
+          <div class="how-step">
+            <div class="how-num">2</div>
+            <div class="how-text">Type or paste it into the field above and press <strong>Verify</strong> or hit Enter.</div>
+          </div>
+          <div class="how-step">
+            <div class="how-num">3</div>
+            <div class="how-text">Your certificate details and validity status will appear instantly. You can also view the certificate image.</div>
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div id="verify-result" role="region" aria-live="polite"></div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-row">
+        <div class="faq-card" style="background:var(--lavender-bg);border-color:var(--lavender)">
+          <h4>Certificate not found?</h4>
+          <p>Double-check for typos. Codes are formatted as UO-YYYY-NNN. Contact us if you believe there is an error.</p>
+        </div>
+        <div class="faq-card" style="background:var(--gold-light);border-color:var(--gold-soft)">
+          <h4>Need official confirmation?</h4>
+          <p>Email us at <a href="mailto:ushaqlarimizaoyredek@gmail.com" style="color:var(--blue);font-weight:600">ushaqlarimizaoyredek@gmail.com</a> for written confirmation.</p>
+        </div>
+      </div>
+
     </div>
   </div>
-</section>
+</div>
 
-<!-- ===== VERIFY SECTION ===== -->
-<section class="section" aria-labelledby="verify-heading">
-  <div class="container">
-    <div class="verify-intro">
-
-      <!-- How it works -->
-      <div class="verify-how reveal">
-        <div class="section-label" style="margin-bottom:14px">How It Works</div>
-        <div class="verify-steps" role="list">
-          <div class="verify-step" role="listitem">
-            <div class="verify-step-num" aria-hidden="true">1</div>
-            <div class="verify-step-text">
-              <h4>Locate the Code</h4>
-              <p>Find the unique certificate code printed on your certificate document. Codes start with UO- followed by the year and a number.</p>
-            </div>
-          </div>
-          <div class="verify-step" role="listitem">
-            <div class="verify-step-num" aria-hidden="true">2</div>
-            <div class="verify-step-text">
-              <h4>Enter and Verify</h4>
-              <p>Type or paste the code into the field and click the Verify button, or press Enter.</p>
-            </div>
-          </div>
-          <div class="verify-step" role="listitem">
-            <div class="verify-step-num" aria-hidden="true">3</div>
-            <div class="verify-step-text">
-              <h4>View the Result</h4>
-              <p>The full certificate details, including recipient name, type, date, and validity status, will be displayed instantly.</p>
-            </div>
-          </div>
-        </div>
-        <div class="security-badge" role="note">
-          All certificate data is verified against our official registry. This process is secure and private.
-        </div>
-      </div>
-
-      <!-- Verify Tool -->
-      <div class="verify-wrap reveal reveal-d1">
-        <div class="verify-card">
-          <h3>Verify a Certificate</h3>
-          <p>Enter the certificate code exactly as it appears on the document, for example: UO-2024-001</p>
-
-          <div class="verify-field-group">
-            <input
-              type="text"
-              id="cert-code"
-              class="verify-input"
-              placeholder="e.g. UO-2024-001"
-              aria-label="Certificate code input"
-              autocomplete="off"
-              spellcheck="false"
-            />
-            <button id="verify-btn" class="verify-btn" aria-label="Verify certificate">Verify</button>
-          </div>
-
-          <div class="verify-hint" role="note">
-            <strong>Tip:</strong> Certificate codes always start with <strong>UO-</strong> and are not case-sensitive.
-          </div>
-
-          <div id="verify-result" role="region" aria-live="polite" aria-label="Verification result"></div>
-
-
-        </div>
-      </div>
+<!-- Certificate image modal -->
+<div class="cert-modal-overlay" id="cert-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="cert-modal">
+    <div class="cert-modal-bar">
+      <h4 id="modal-title">Certificate</h4>
+      <button class="cert-modal-close" id="modal-close" aria-label="Close">&times;</button>
     </div>
-
-    <!-- FAQ row -->
-    <div class="faq-grid reveal">
-      <div class="faq-card" style="background:var(--lavender-bg);border-color:var(--lavender)">
-        <h4 style="font-family:var(--font-body);margin-bottom:8px">Certificate not found?</h4>
-        <p style="font-size:.875rem;color:var(--muted);line-height:1.7">Double-check the code for typos. Codes are formatted as UO-YYYY-NNN. Contact us if you believe there is an error.</p>
-      </div>
-      <div class="faq-card" style="background:var(--gold-light);border-color:var(--gold-soft)">
-        <h4 style="font-family:var(--font-body);margin-bottom:8px">Need official confirmation?</h4>
-        <p style="font-size:.875rem;color:var(--muted);line-height:1.7">For written confirmation email us at <a href="mailto:ushaqlarimizaoyredek@gmail.com" style="color:var(--blue);font-weight:600">ushaqlarimizaoyredek@gmail.com</a>.</p>
-      </div>
+    <div class="cert-modal-img" id="modal-img-wrap">
+      <!-- Image injected by JS -->
     </div>
   </div>
-</section>
+</div>
 
 <!-- ===== FOOTER ===== -->
 <footer role="contentinfo">
@@ -174,10 +282,9 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="images/uologoclear.png" alt="Ushaqlarimiza Oyredek logo"/>
+          <img src="images/landingpage/uologoclear.png" alt="Ushaqlarimiza Oyredek logo"/>
         </div>
         <div class="footer-brand-name">Ushaqlarimiza Oyredek</div>
-        <div class="footer-brand-tag">~ No child left behind ~</div>
         <p class="footer-desc">A non-governmental, non-profit and student-led organisation committed to the advancement of disadvantaged, disabled, and underprivileged children across the world.</p>
         <div class="social-links">
           <a href="https://www.linkedin.com/in/ushaqlarimiza-oyredek-2b9051296/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
@@ -227,7 +334,105 @@
 </footer>
 
 <script src="data/certificates.js"></script>
-<script src="js/verify.js"></script>
 <script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* -- Collapsible instructions -- */
+  const howToggle = document.getElementById('how-toggle');
+  const howBody   = document.getElementById('how-body');
+  howToggle.addEventListener('click', () => {
+    const open = howBody.classList.toggle('open');
+    howToggle.classList.toggle('open', open);
+    howToggle.setAttribute('aria-expanded', open);
+  });
+
+  /* -- Certificate modal -- */
+  const modal     = document.getElementById('cert-modal');
+  const modalWrap = document.getElementById('modal-img-wrap');
+  const modalTitle= document.getElementById('modal-title');
+  const modalClose= document.getElementById('modal-close');
+
+  function openModal(cert) {
+    modalTitle.textContent = cert.recipientName + ' — ' + cert.certificateType;
+    modalWrap.innerHTML = '';
+    // Try to load certificate image from images/certificates/<CODE>.<ext>
+    // We try jpg first, fall back to png, fall back to message
+    const exts = ['jpg','jpeg','png','pdf'];
+    const base = 'images/certificates/' + cert.code;
+    let tried = 0;
+    function tryNext() {
+      if (tried >= exts.length) {
+        modalWrap.innerHTML = '<div class="cert-modal-missing"><p style="font-size:1rem;margin-bottom:8px">Certificate image not found.</p><p style="font-size:.82rem">Place the certificate file at:<br><code>images/certificates/' + cert.code + '.jpg</code></p></div>';
+        return;
+      }
+      const img = new Image();
+      img.src = base + '.' + exts[tried];
+      img.alt = 'Certificate for ' + cert.recipientName;
+      img.onload = () => modalWrap.appendChild(img);
+      img.onerror = () => { tried++; tryNext(); };
+      tried++;
+    }
+    tryNext();
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  /* -- Verify logic -- */
+  const input  = document.getElementById('cert-code');
+  const btn    = document.getElementById('verify-btn');
+  const result = document.getElementById('verify-result');
+
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function fmtDate(s) {
+    return new Date(s + 'T00:00:00').toLocaleDateString('en-GB', {day:'numeric',month:'long',year:'numeric'});
+  }
+
+  function runVerify() {
+    const code = input.value.trim().toUpperCase();
+    if (!code) {
+      result.innerHTML = '<div class="result-error"><div class="result-badge not-found">Input Required</div><p style="font-size:.9rem;color:var(--text)">Please enter a certificate code.</p></div>';
+      return;
+    }
+    const cert = CERTIFICATES.find(c => c.code.toUpperCase() === code);
+    if (!cert) {
+      result.innerHTML = '<div class="result-error"><div class="result-badge not-found">Not Found</div><p style="font-size:.9rem;color:var(--text);margin-bottom:6px"><strong>No certificate found with code "' + esc(code) + '".</strong></p><p style="font-size:.85rem;color:var(--muted)">Please check the code and try again.</p></div>';
+      result.scrollIntoView({behavior:'smooth',block:'nearest'}); return;
+    }
+    const valid = cert.status === 'Valid';
+    const badgeClass = valid ? 'valid' : 'revoked';
+    const statusColor = valid ? '#2E7D57' : '#C62828';
+    const divClass = valid ? 'result-valid' : 'result-revoked';
+    result.innerHTML = `
+      <div class="${divClass}">
+        <div class="result-badge ${badgeClass}">${valid ? 'Valid Certificate' : 'Revoked Certificate'}</div>
+        <div class="result-row"><span class="result-key">Code</span><span class="result-val" style="font-family:'Courier New',monospace;font-weight:700">${esc(cert.code)}</span></div>
+        <div class="result-row"><span class="result-key">Recipient</span><span class="result-val">${esc(cert.recipientName)}</span></div>
+        <div class="result-row"><span class="result-key">Type</span><span class="result-val">${esc(cert.certificateType)}</span></div>
+        <div class="result-row"><span class="result-key">Issued</span><span class="result-val">${fmtDate(cert.issueDate)}</span></div>
+        <div class="result-row"><span class="result-key">Issued By</span><span class="result-val">${esc(cert.issuedBy)}</span></div>
+        <div class="result-row"><span class="result-key">Status</span><span class="result-val" style="font-weight:700;color:${statusColor}">${esc(cert.status)}</span></div>
+        ${cert.description ? `<div style="margin-top:14px;padding-top:14px;border-top:1px solid ${valid?'#B2DFC8':'#FFCDD2'}"><p style="font-size:.83rem;color:var(--muted);line-height:1.7">${esc(cert.description)}</p></div>` : ''}
+        <button class="view-cert-btn" id="view-cert-btn">View Certificate Image</button>
+      </div>`;
+    result.scrollIntoView({behavior:'smooth',block:'nearest'});
+    document.getElementById('view-cert-btn').addEventListener('click', () => openModal(cert));
+  }
+
+  btn.addEventListener('click', runVerify);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') runVerify(); });
+});
+</script>
 </body>
 </html>

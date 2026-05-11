@@ -109,7 +109,7 @@ h4{font-size:1rem;font-weight:600}
 .nav-logo svg{width:28px;height:28px}
 .nav-brand-text{display:flex;flex-direction:column;gap:1px}
 .nav-brand-name{font-family:var(--font-head);font-size:1rem;font-weight:700;color:var(--blue-dark);line-height:1.15}
-.nav-brand-tag{font-size:.68rem;color:var(--muted);font-style:italic;letter-spacing:.04em}
+.nav-brand-tag{display:none}
 
 .nav-links{display:flex;align-items:center;gap:2px}
 .nav-links a{
@@ -138,7 +138,7 @@ h4{font-size:1rem;font-weight:600}
 
 /* ===== HERO ===== */
 .hero{
-  position:relative;min-height:100vh;
+  position:relative;min-height:92vh;
   display:flex;align-items:center;overflow:hidden;
   background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 60%,#0192D8 100%)
 }
@@ -162,7 +162,7 @@ h4{font-size:1rem;font-weight:600}
   position:absolute;width:220px;height:220px;border-radius:50%;
   border:1px solid rgba(255,255,255,.10);bottom:160px;right:14%
 }
-.hero-content{position:relative;z-index:2;max-width:800px;padding:100px 0 180px}
+.hero-content{position:relative;z-index:2;max-width:800px;padding:80px 0 120px}
 .hero-chip{
   display:inline-flex;align-items:center;gap:10px;
   background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
@@ -206,6 +206,7 @@ h4{font-size:1rem;font-weight:600}
 .value-card:nth-child(3){border-top:3px solid #E74C3C}
 .value-card:nth-child(4){border-top:3px solid var(--purple)}
 .value-card:nth-child(5){border-top:3px solid #1ABC9C}
+.value-icon{font-size:2.2rem;margin-bottom:12px;line-height:1}
 .value-name{font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:8px}
 .value-desc{font-size:.875rem;color:var(--muted);line-height:1.6}
 
@@ -234,13 +235,12 @@ h4{font-size:1rem;font-weight:600}
 
 /* ===== MEDIA ROW (images + video) ===== */
 .media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.media-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:16px}
 .media-item{border-radius:var(--radius);overflow:hidden;position:relative;background:var(--blue-light)}
 .media-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s var(--ease)}
 .media-item:hover img{transform:scale(1.04)}
 .media-item.wide{grid-column:span 2}
 .media-item.wide img{height:360px}
-.media-item:not(.wide) img{height:240px}
+.media-item:not(.wide) img{height:260px}
 .video-thumb{
   position:relative;cursor:pointer;
   background:#000;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/9

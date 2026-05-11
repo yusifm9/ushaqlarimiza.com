@@ -4,34 +4,97 @@
 const CERTIFICATES = [
   {
     code: "UO-2024-001",
-    recipientName: "John Doe",
-    certificateType: "Programme Participation",
-    issueDate: "2024-06-01",
-    issuedBy: "Ushaqlarimiza Oyredek -- Executive Board",
+    recipientName: "Fatima Osmanova",
+    certificateType: "Completing Organizer Duties",
+    issueDate: "2025-08-01",
+    issuedBy: "Executive Board",
     status: "Valid",
-    description: "Awarded for successful participation in an Ushaqlarimiza Oyredek programme."
+    description: "In recognition of outstanding organizer work."
+  },
+  {
+    code: "UO-2024-002",
+    recipientName: "Mehriban Abdurrahmanova",
+    certificateType: "Completing Organizer Duties",
+    issueDate: "2025-08-01",
+    issuedBy: "Executive Board",
+    status: "Valid",
+    description: "In recognition of outstanding organizer work."
+  },
+  {
+    code: "UO-2024-003",
+    recipientName: "Nazrin Aliyeva",
+    certificateType: "Completing Organizer Duties",
+    issueDate: "2025-08-01",
+    issuedBy: "Executive Board",
+    status: "Valid",
+    description: "In recognition of outstanding organizer work."
+  },
+  {
+    code: "UO-2024-004",
+    recipientName: "Nurcan Bagirzade",
+    certificateType: "Completing Organizer Duties",
+    issueDate: "2025-08-01",
+    issuedBy: "Executive Board",
+    status: "Valid",
+    description: "In recognition of outstanding organizer work."
+  },
+  {
+    code: "UO-2024-007",
+    recipientName: "Ayla Jalaladdinova",
+    certificateType: "Completing Organizer Duties",
+    issueDate: "2025-08-01",
+    issuedBy: "Executive Board",
+    status: "Valid",
+    description: "In recognition of outstanding organizer work."
+  },
+  {
+    code: "UO-2024-006",
+    recipientName: "Aida Habibli",
+    certificateType: "Completing Organizer Duties",
+    issueDate: "2025-08-01",
+    issuedBy: "Executive Board",
+    status: "Valid",
+    description: "In recognition of outstanding organizer work."
+  },
+  {
+    code: "UO-2024-005",
+    recipientName: "Aliya Tagiyeva",
+    certificateType: "Completing Organizer Duties",
+    issueDate: "2025-08-01",
+    issuedBy: "Executive Board",
+    status: "Valid",
+    description: "In recognition of outstanding organizer work."
   },
   {
     code: "UO-2024-503",
     recipientName: "Ulviyya Mammadova",
     certificateType: "Organizer & Member of the Year",
     issueDate: "2024-12-15",
-    issuedBy: "Ushaqlarimiza Oyredek -- Executive Board",
+    issuedBy: "Executive Board",
     status: "Valid",
-    description: "Awarded in recognition of outstanding organisational contributions and exceptional dedication as Member of the Year 2024."
+    description: "In recognition of outstanding organisational contributions and exceptional dedication as Member of the Year 2024."
+  },
+  {
+    code: "UO-2024-017",
+    recipientName: "Aylin Pirverdi",
+    certificateType: "For the Head of Media Team",
+    issueDate: "2024-09-01",
+    issuedBy: "Executive Board",
+    status: "Valid",
+    description: "In recognition of outstanding media team work."
   },
   {
     code: "UO-2024-002",
-    recipientName: "Rauf Hasanov",
-    certificateType: "Community Educator",
+    recipientName: "Farah Taleyeva",
+    certificateType: "Completing Media Team Member Duties",
     issueDate: "2024-09-01",
-    issuedBy: "Ushaqlarimiza Oyredek -- Supervisory Board",
+    issuedBy: "Executive Board",
     status: "Valid",
-    description: "Recognised for leading 8 community learning workshops reaching over 200 underprivileged children."
+    description: "In recognition of an outstanding contribution to the media team."
   },
   {
-    code: "UO-2023-015",
-    recipientName: "Leyla Aliyeva",
+    code: "UO-2024-022",
+    recipientName: "Imran Nasibov",
     certificateType: "Programme Participation",
     issueDate: "2023-12-20",
     issuedBy: "Ushaqlarimiza Oyredek -- Media Team",

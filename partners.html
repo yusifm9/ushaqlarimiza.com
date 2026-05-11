@@ -7,40 +7,21 @@
   <meta name="description" content="The organisations and institutions that stand with Ushaqlarimiza Oyredek in our mission to empower underprivileged children."/>
   <link rel="stylesheet" href="css/style.css"/>
   <style>
-    .partner-tier{margin-bottom:64px}
+    .partner-tier{margin-bottom:56px}
     .partner-tier-label{
-      display:flex;align-items:center;gap:16px;margin-bottom:32px
+      display:flex;align-items:center;gap:16px;margin-bottom:28px
     }
     .partner-tier-label h3{
       font-size:.88rem;text-transform:uppercase;letter-spacing:.12em;
       color:var(--muted);font-family:var(--font-body);font-weight:700;white-space:nowrap
     }
     .partner-tier-label::after{content:'';flex:1;height:1px;background:var(--border)}
-    .partners-quote{
-      background:linear-gradient(135deg,var(--blue-dark),var(--blue));
-      border-radius:var(--radius);padding:48px 56px;margin-bottom:72px;
-      position:relative;overflow:hidden
-    }
-    .partners-quote::before{
-      content:'"';position:absolute;top:-20px;left:24px;
-      font-family:var(--font-head);font-size:14rem;color:rgba(255,255,255,.05);
-      line-height:1;pointer-events:none
-    }
-    .partners-quote blockquote{
-      position:relative;z-index:1;
-      font-family:var(--font-head);font-size:1.35rem;color:#fff;
-      font-weight:600;line-height:1.55;margin-bottom:20px
-    }
-    .partners-quote cite{font-size:.85rem;color:rgba(255,255,255,.55);font-style:normal}
     .become-partner{
       background:var(--lavender-bg);border:1px solid var(--lavender);
-      border-radius:var(--radius);padding:48px 40px;text-align:center
+      border-radius:var(--radius);padding:40px;text-align:center;margin-top:16px
     }
-    .become-partner h3{margin-bottom:12px}
-    .become-partner p{color:var(--muted);max-width:460px;margin:0 auto 28px;font-size:.95rem;line-height:1.75}
-    @media(max-width:600px){
-      .partners-quote{padding:36px 28px}
-    }
+    .become-partner h3{margin-bottom:10px}
+    .become-partner p{color:var(--muted);max-width:440px;margin:0 auto 24px;font-size:.92rem;line-height:1.7}
   </style>
 </head>
 <body>
@@ -51,11 +32,10 @@
     <div class="nav-inner">
       <a class="nav-brand" href="index.html" aria-label="Ushaqlarimiza Oyredek home">
         <div class="nav-logo">
-          <img src="images/uologoclear.png" alt="Ushaqlarimiza Oyredek logo"/>
+          <img src="images/landingpage/uologoclear.png" alt="Ushaqlarimiza Oyredek logo"/>
         </div>
         <div class="nav-brand-text">
           <span class="nav-brand-name">Ushaqlarimiza Oyredek</span>
-          <span class="nav-brand-tag">~ No child left behind ~</span>
         </div>
       </a>
       <div class="nav-links">
@@ -89,7 +69,6 @@
     <div class="page-hero-content">
       <div class="section-label">Collaboration</div>
       <h1 id="partners-page-heading">Our Partners</h1>
-      <p>We do not do this alone. Every organisation that stands with us amplifies the impact we can make for children in need.</p>
     </div>
   </div>
 </section>
@@ -98,180 +77,161 @@
 <section class="section" aria-labelledby="partners-heading">
   <div class="container">
 
-    <div class="partners-quote reveal">
-      <blockquote>"Partnership is the most powerful tool we have. When organisations come together for children, the results are extraordinary."</blockquote>
-      <cite>Yusuf Karimli, Founder and Chair of the Supervisory Board, Ushaqlarimiza Oyredek</cite>
-    </div>
-
-    <div class="section-header reveal">
-      <div class="section-label">Who Supports Us</div>
-      <h2 class="section-title" id="partners-heading">Trusted Partners &amp; Supporters</h2>
-      <p class="section-sub">From educational institutions to corporate sponsors, our partners share our belief that every child deserves a chance.</p>
-    </div>
-
+    <!-- Media Partners -->
     <div class="partner-tier">
       <div class="partner-tier-label"><h3>Media Partners</h3></div>
       <div class="partners-grid" role="list">
         <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/AZTV.jpg" alt="Partner organisation 1" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/AZTV.jpg" alt="AZTV" width="220" height="80" loading="lazy"/>
           <div class="partner-name">AZTV</div>
         </div>
         <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/AZTV_radio.jpg" alt="Partner organisation 2" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/AZTV_radio.jpg" alt="AZTV Radio" width="220" height="80" loading="lazy"/>
           <div class="partner-name">AZTV Radio</div>
         </div>
         <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/azertac.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/azertac.jpg" alt="AZERTAC News" width="220" height="80" loading="lazy"/>
           <div class="partner-name">AZERTAC News</div>
         </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/bakuws.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">BAKUWS TV & News</div>
+        <div class="partner-card reveal" role="listitem">
+          <img class="partner-logo" src="images/partners/bakuws.jpg" alt="BAKUWS TV" width="220" height="80" loading="lazy"/>
+          <div class="partner-name">BAKUWS TV &amp; News</div>
         </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/xezer.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
+        <div class="partner-card reveal reveal-d1" role="listitem">
+          <img class="partner-logo" src="images/partners/xezer.jpg" alt="Khazar TV" width="220" height="80" loading="lazy"/>
           <div class="partner-name">Khazar TV</div>
         </div>
         <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/xezercenter.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/xezercenter.jpg" alt="Khazar Media Center" width="220" height="80" loading="lazy"/>
           <div class="partner-name">Khazar Media Center</div>
         </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/arazfm.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
+        <div class="partner-card reveal" role="listitem">
+          <img class="partner-logo" src="images/partners/arazfm.jpg" alt="ARAZ FM" width="220" height="80" loading="lazy"/>
           <div class="partner-name">ARAZ FM Radio</div>
         </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/apa.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
+        <div class="partner-card reveal reveal-d1" role="listitem">
+          <img class="partner-logo" src="images/partners/apa.jpg" alt="APA News" width="220" height="80" loading="lazy"/>
           <div class="partner-name">APA News Agency</div>
         </div>
       </div>
     </div>
 
+    <!-- Educational Partners -->
     <div class="partner-tier">
       <div class="partner-tier-label"><h3>Educational Partners</h3></div>
       <div class="partners-grid" role="list">
         <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/landau.jpg" alt="Partner organisation 4" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/landau.jpg" alt="LANDAU School" width="220" height="80" loading="lazy"/>
           <div class="partner-name">LANDAU School</div>
         </div>
         <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/mtk.jpeg" alt="Partner organisation 5" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/mtk.jpeg" alt="European Azerbaijan School" width="220" height="80" loading="lazy"/>
           <div class="partner-name">European Azerbaijan School</div>
         </div>
         <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/TISA.jpg" alt="Partner organisation 6" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/TISA.jpg" alt="TISA" width="220" height="80" loading="lazy"/>
           <div class="partner-name">The International School of Azerbaijan</div>
         </div>
         <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/isops.jpg" alt="Partner organisation 6" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/isops.jpg" alt="ISOPS" width="220" height="80" loading="lazy"/>
           <div class="partner-name">ISOPS</div>
         </div>
       </div>
     </div>
 
-
+    <!-- Our Partners -->
     <div class="partner-tier">
       <div class="partner-tier-label"><h3>Our Partners</h3></div>
       <div class="partners-grid" role="list">
         <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/yelo.png" alt="Partner organisation 1" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/yelo.png" alt="Yelo" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/cinnabon.jpg" alt="Partner organisation 2" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/cinnabon.jpg" alt="Cinnabon" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/minisrtydigitaldev.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/eco.png" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/minisrtydigitaldev.jpg" alt="Ministry of Digital Development" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/eng.jpg" alt="Partner organisation 1" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/eco.png" alt="Eco" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/ex.jpg" alt="Partner organisation 2" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/eng.jpg" alt="Partner" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/unitednations.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/child&youth.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/UMID.png" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/ex.jpg" alt="Partner" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/umid.jpeg" alt="Partner organisation 1" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/unitednations.jpg" alt="United Nations" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/autism.jpeg" alt="Partner organisation 2" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/child&youth.jpg" alt="Child and Youth" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/YOS.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/nasa.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
-        </div>
-        <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/siemens.jpg" alt="Partner organisation 2" width="220" height="80" loading="lazy"/>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/new_zeon.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/summer_school.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/UMID.png" alt="UMID" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/landmark.jpeg" alt="Partner organisation 1" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/umid.jpeg" alt="UMID" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/landmark.jpeg" alt="Partner organisation 2" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/autism.jpeg" alt="Autism" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/bakuexpo.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/azercosmos.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/YOS.jpg" alt="YOS" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/the_entertainer.jpg" alt="Partner organisation 1" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/nasa.jpg" alt="NASA" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/novco.jpg" alt="Partner organisation 2" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/siemens.jpg" alt="Siemens" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/azercell.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/medinex.jpg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/new_zeon.jpg" alt="New Zeon" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/karabakh.png" alt="Partner organisation 1" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/summer_school.jpg" alt="Summer School" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/fusion.jpg" alt="Partner organisation 2" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/landmark.jpeg" alt="Landmark" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/fusion.jpeg" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/bakuexpo.jpg" alt="Baku Expo" width="220" height="80" loading="lazy"/>
+        </div>
+        <div class="partner-card reveal" role="listitem">
+          <img class="partner-logo" src="images/partners/azercosmos.jpg" alt="Azercosmos" width="220" height="80" loading="lazy"/>
+        </div>
+        <div class="partner-card reveal reveal-d1" role="listitem">
+          <img class="partner-logo" src="images/partners/the_entertainer.jpg" alt="The Entertainer" width="220" height="80" loading="lazy"/>
         </div>
         <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/zilli.png" alt="Partner organisation 3" width="220" height="80" loading="lazy"/>
+          <img class="partner-logo" src="images/partners/novco.jpg" alt="Novco" width="220" height="80" loading="lazy"/>
+        </div>
+        <div class="partner-card reveal" role="listitem">
+          <img class="partner-logo" src="images/partners/azercell.jpg" alt="Azercell" width="220" height="80" loading="lazy"/>
+        </div>
+        <div class="partner-card reveal reveal-d1" role="listitem">
+          <img class="partner-logo" src="images/partners/medinex.jpg" alt="Medinex" width="220" height="80" loading="lazy"/>
+        </div>
+        <div class="partner-card reveal reveal-d2" role="listitem">
+          <img class="partner-logo" src="images/partners/karabakh.png" alt="Karabakh" width="220" height="80" loading="lazy"/>
+        </div>
+        <div class="partner-card reveal" role="listitem">
+          <img class="partner-logo" src="images/partners/fusion.jpg" alt="Fusion" width="220" height="80" loading="lazy"/>
+        </div>
+        <div class="partner-card reveal reveal-d1" role="listitem">
+          <img class="partner-logo" src="images/partners/zilli.png" alt="Zilli" width="220" height="80" loading="lazy"/>
         </div>
       </div>
     </div>
 
     <div class="become-partner reveal">
-      <div class="section-label" style="margin-bottom:16px">Partner With Us</div>
       <h3>Interested in Partnering?</h3>
-      <p>Whether you are a company, educational institution, or NGO, if you share our commitment to children's welfare and education, we would love to explore how we can work together.</p>
+      <p>If you share our commitment to children's welfare, we would love to work together.</p>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
         <a href="mailto:info@ushaqlarimizaoyredek.com" class="btn btn-primary">Get In Touch</a>
         <a href="index.html#donate" class="btn btn-outline-blue">Support Financially</a>
       </div>
     </div>
-
-
-
 
   </div>
 </section>
@@ -282,10 +242,9 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="images/uologoclear.png" alt="Ushaqlarimiza Oyredek logo"/>
+          <img src="images/landingpage/uologoclear.png" alt="Ushaqlarimiza Oyredek logo"/>
         </div>
         <div class="footer-brand-name">Ushaqlarimiza Oyredek</div>
-        <div class="footer-brand-tag">~ No child left behind ~</div>
         <p class="footer-desc">A non-governmental, non-profit and student-led organisation committed to the advancement of disadvantaged, disabled, and underprivileged children across the world.</p>
         <div class="social-links">
           <a href="https://www.linkedin.com/in/ushaqlarimiza-oyredek-2b9051296/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
