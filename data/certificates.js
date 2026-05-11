@@ -4,12 +4,21 @@
 const CERTIFICATES = [
   {
     code: "UO-2024-001",
-    recipientName: "Aynur Mammadova",
-    certificateType: "Volunteer of the Year",
-    issueDate: "2024-06-15",
+    recipientName: "John Doe",
+    certificateType: "Programme Participation",
+    issueDate: "2024-06-01",
     issuedBy: "Ushaqlarimiza Oyredek -- Executive Board",
     status: "Valid",
-    description: "Awarded for exceptional dedication and 120+ hours of volunteer service in the Education Support programme."
+    description: "Awarded for successful participation in an Ushaqlarimiza Oyredek programme."
+  },
+  {
+    code: "UO-2024-503",
+    recipientName: "Ulviyya Mammadova",
+    certificateType: "Organizer & Member of the Year",
+    issueDate: "2024-12-15",
+    issuedBy: "Ushaqlarimiza Oyredek -- Executive Board",
+    status: "Valid",
+    description: "Awarded in recognition of outstanding organisational contributions and exceptional dedication as Member of the Year 2024."
   },
   {
     code: "UO-2024-002",
@@ -28,14 +37,5 @@ const CERTIFICATES = [
     issuedBy: "Ushaqlarimiza Oyredek -- Media Team",
     status: "Revoked",
     description: "This certificate has been revoked. Please contact the organisation for further information."
-  },
-  {
-    code: "UO-2025-001",
-    recipientName: "Farid Guliyev",
-    certificateType: "Child Welfare Ambassador",
-    issueDate: "2025-03-08",
-    issuedBy: "Ushaqlarimiza Oyredek -- Executive Board",
-    status: "Valid",
-    description: "Awarded for founding the Safe Spaces initiative providing after-school support to 80+ children."
   }
 ];
