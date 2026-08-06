@@ -87,17 +87,32 @@ document.addEventListener('DOMContentLoaded', () => {
     reveals.forEach(el => ro.observe(el));
   }
 
+  /* -- TEAM PHOTO FALLBACKS -- */
+  document.querySelectorAll('.team-photo img').forEach(img => {
+    const hideBroken = () => {
+      if (img.complete && img.naturalWidth === 0) img.remove();
+    };
+    img.addEventListener('error', () => img.remove());
+    hideBroken();
+  });
+
   /* -- CONTACT FORM -- */
-  const contactForm = document.querySelector('.contact-form');
-  if (contactForm) {
+  const contactForms = document.querySelectorAll('.contact-form');
+  contactForms.forEach(contactForm => {
     contactForm.addEventListener('submit', e => {
       e.preventDefault();
       const btn = contactForm.querySelector('button');
+      const name = contactForm.querySelector('input[type="text"]')?.value.trim() || '';
+      const email = contactForm.querySelector('input[type="email"]')?.value.trim() || '';
+      const message = contactForm.querySelector('textarea')?.value.trim() || '';
       const orig = btn.textContent;
-      btn.textContent = 'Sent!';
+      const subject = encodeURIComponent(name ? `Website inquiry from ${name}` : 'Website inquiry for UO');
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+      btn.textContent = 'Opening email...';
       btn.style.background = '#6FBF9A';
+      window.location.href = `mailto:ushaqlarimizaoyredek@gmail.com?subject=${subject}&body=${body}`;
       setTimeout(() => { btn.textContent = orig; btn.style.background = ''; contactForm.reset(); }, 3000);
     });
-  }
+  });
 
 });

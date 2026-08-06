@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ushaqlarimiza Oyredek</title>
-  <meta name="description" content="Verify the authenticity of a certificate issued by Ushaqlarimiza Oyredek."/>
+  <meta name="description" content="Verify the authenticity of a certificate issued by Ushaqlarimiza Oyredek, a Non-Profit Youth Community (NPYC)."/>
   <link rel="icon" type="image/svg+xml" href="images/landingpage/uologoclear.svg"/>
   <link rel="shortcut icon" href="images/landingpage/uologoclear.svg"/>
   <link rel="apple-touch-icon" href="images/landingpage/uologoclear.svg"/>
@@ -177,6 +177,7 @@
       </a>
       <div class="nav-links">
         <a href="index.html">Home</a>
+        <a href="https://www.linkedin.com/company/ushaqlarimiza-oyredek/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="index.html#about">About</a>
         <a href="index.html#news">News &amp; Events</a>
         <a href="team.html">Team</a>
@@ -192,6 +193,7 @@
 </nav>
 <nav class="mobile-nav" aria-label="Mobile navigation">
   <a href="index.html">Home</a>
+  <a href="https://www.linkedin.com/company/ushaqlarimiza-oyredek/" target="_blank" rel="noopener">LinkedIn</a>
   <a href="index.html#about">About</a>
   <a href="index.html#news">News &amp; Events</a>
   <a href="team.html">Team</a>
@@ -290,9 +292,9 @@
           <img src="images/landingpage/uologoclear.png" alt="Ushaqlarimiza Oyredek logo"/>
         </div>
         <div class="footer-brand-name">Ushaqlarimiza Oyredek</div>
-        <p class="footer-desc">A non-governmental, non-profit and student-led organisation committed to the advancement of disadvantaged, disabled, and underprivileged children across the world.</p>
+        <p class="footer-desc">A student-led Non-Profit Youth Community (NPYC) supporting disadvantaged, disabled, and underprivileged children through inclusive learning, community care, and youth-led action.</p>
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/ushaqlarimiza-oyredek-2b9051296/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+          <a href="https://www.linkedin.com/company/ushaqlarimiza-oyredek/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
           <a href="https://www.instagram.com/ushaqlarimizaoyredek/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">ig</a>
           <a href="https://www.facebook.com/profile.php?id=61552572833316" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">fb</a>
           <a href="https://www.tiktok.com/@ushaqlarimizaoyredek" class="social-link" aria-label="TikTok" target="_blank" rel="noopener">tt</a>
@@ -312,10 +314,10 @@
       <div class="footer-col">
         <h4>Events</h4>
         <ul>
-          <li><a href="#">Past Events</a></li>
-          <li><a href="#">Planned Events</a></li>
-          <li><a href="#">Workshops</a></li>
-          <li><a href="#">Exhibitions</a></li>
+          <li><a href="index.html#past-events">Past Events</a></li>
+          <li><a href="index.html#active-projects">Active Campaigns</a></li>
+          <li><a href="index.html#active-projects">Workshops</a></li>
+          <li><a href="index.html#past-events">Exhibitions</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -329,7 +331,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>2023-2025 "Ushaqlarimiza Oyredek" non-profit society. All rights reserved.</p>
+      <p>2023-2026 "Ushaqlarimiza Oyredek" Non-Profit Youth Community (NPYC). All rights reserved.</p>
       <div class="footer-bottom-links">
         <a href="verify.html">Verify Certificate</a>
         <span class="dev-credit">developed by Yusif M.</span>
@@ -359,11 +361,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalClose= document.getElementById('modal-close');
 
   function openModal(cert) {
-    modalTitle.textContent = cert.recipientName + ' — ' + cert.certificateType;
+    modalTitle.textContent = cert.recipientName + ' - ' + cert.certificateType;
     modalWrap.innerHTML = '';
-    // Try to load certificate image from images/certificates/<CODE>.<ext>
-    // We try jpg first, fall back to png, fall back to message
-    const exts = ['jpg','jpeg','png','pdf'];
+    if (cert.image) {
+      const img = new Image();
+      img.src = cert.image;
+      img.alt = 'Certificate for ' + cert.recipientName;
+      img.onload = () => modalWrap.appendChild(img);
+      img.onerror = () => {
+        modalWrap.innerHTML = '<div class="cert-modal-missing"><p style="font-size:1rem;margin-bottom:8px">Certificate image not found.</p><p style="font-size:.82rem">Expected file:<br><code>' + esc(cert.image) + '</code></p></div>';
+      };
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      return;
+    }
+    // Try to load certificate image from images/certificates/<CODE>.<ext>.
+    const exts = ['png','jpg','jpeg'];
     const base = 'images/certificates/' + cert.code;
     let tried = 0;
     function tryNext() {

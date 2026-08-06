@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       result.innerHTML = `<div class="result-error">
         <div class="result-badge not-found">Not Found</div>
         <p style="color:var(--text);font-size:.95rem;margin-bottom:8px"><strong>No certificate found with code "${esc(code)}".</strong></p>
-        <p style="color:var(--muted);font-size:.875rem;line-height:1.7">Please double-check the code and try again. Contact us at <a href="mailto:info@ushaqlarimizaoyredek.com" style="color:var(--blue)">info@ushaqlarimizaoyredek.com</a> if you need help.</p>
+        <p style="color:var(--muted);font-size:.875rem;line-height:1.7">Please double-check the code and try again. Contact us at <a href="mailto:ushaqlarimizaoyredek@gmail.com" style="color:var(--blue)">ushaqlarimizaoyredek@gmail.com</a> if you need help.</p>
       </div>`;
       result.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); return;
     }
