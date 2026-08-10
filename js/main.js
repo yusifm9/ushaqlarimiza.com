@@ -162,6 +162,81 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  /* -- HOMEPAGE GALLERY MARQUEE -- */
+  document.querySelectorAll('[data-gallery-marquee]').forEach(marquee => {
+    if (marquee.dataset.galleryMarqueeReady === 'true') return;
+    marquee.dataset.galleryMarqueeReady = 'true';
+
+    const viewport = marquee.querySelector('[data-gallery-viewport]');
+    const track = marquee.querySelector('[data-gallery-track]');
+    const prev = marquee.querySelector('[data-gallery-prev]');
+    const next = marquee.querySelector('[data-gallery-next]');
+    if (!viewport || !track) return;
+
+    const slides = Array.from(track.children);
+    for (let i = slides.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      track.appendChild(slides[j]);
+      slides.splice(j, 1);
+    }
+
+    Array.from(track.children).forEach(item => {
+      const clone = item.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+
+    let singleWidth = 0;
+    let pauseUntil = 0;
+    const defaultDirection = -1;
+    let direction = defaultDirection;
+    const speed = 0.95;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const measure = () => {
+      singleWidth = track.scrollWidth / 2;
+      if (singleWidth > 0 && viewport.scrollLeft === 0) viewport.scrollLeft = singleWidth;
+    };
+
+    const wrap = () => {
+      if (!singleWidth) return;
+      if (viewport.scrollLeft <= 0) viewport.scrollLeft += singleWidth;
+      if (viewport.scrollLeft >= singleWidth) viewport.scrollLeft -= singleWidth;
+    };
+
+    const nudge = sign => {
+      measure();
+      const distance = Math.min(420, Math.max(240, viewport.clientWidth * 0.48));
+      if (sign < 0 && viewport.scrollLeft < distance) viewport.scrollLeft += singleWidth;
+      if (sign > 0 && viewport.scrollLeft > singleWidth - distance) viewport.scrollLeft -= singleWidth;
+      direction = sign;
+      pauseUntil = performance.now() + 950;
+      viewport.scrollBy({ left: sign * distance, behavior: 'smooth' });
+      window.setTimeout(() => {
+        wrap();
+        direction = defaultDirection;
+      }, 1000);
+    };
+
+    prev?.addEventListener('click', () => nudge(-1));
+    next?.addEventListener('click', () => nudge(1));
+    viewport.addEventListener('mouseenter', () => { pauseUntil = performance.now() + 650; });
+    viewport.addEventListener('focusin', () => { pauseUntil = performance.now() + 650; });
+    window.addEventListener('resize', measure, { passive: true });
+
+    measure();
+    if (!reduceMotion) {
+      const animate = time => {
+        if (time > pauseUntil) {
+          viewport.scrollLeft += direction * speed;
+          wrap();
+        }
+        requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    }
+  });
+
   /* -- CONTACT FORM -- */
   const contactForms = document.querySelectorAll('.contact-form');
   contactForms.forEach(contactForm => {
