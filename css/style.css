@@ -217,24 +217,27 @@ h4{font-size:1rem;font-weight:600}
 .value-card:nth-child(5)::before{background:#1ABC9C}
 .value-name{font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:8px}
 .value-desc{font-size:.875rem;color:var(--muted);line-height:1.6}
+.values-playground{
+  position:relative;padding:10px 0 72px
+}
+.values-playground .values-grid{position:relative;z-index:2}
 .motto-strip{
-  max-width:1040px;margin:42px auto 0;padding:18px 8px 10px;
-  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
-  gap:clamp(10px,2.6vw,28px)
+  position:absolute;inset:0;z-index:3;pointer-events:none
 }
 .motto-strip img{
   --tilt:0deg;--shift-x:0;--shift-y:0;
-  width:clamp(132px,16vw,188px);height:128px;object-fit:contain;
-  padding:8px;border-radius:var(--radius-sm);
+  position:absolute;width:clamp(108px,13vw,162px);height:auto;object-fit:contain;
+  padding:6px;border-radius:var(--radius-sm);
+  opacity:.88;
   filter:drop-shadow(0 10px 18px rgba(13,27,42,.10));
   transform:translate(var(--shift-x),var(--shift-y)) rotate(var(--tilt));
   transition:transform var(--dur) var(--ease),filter var(--dur) var(--ease)
 }
-.motto-strip img:nth-child(1){--tilt:-8deg;--shift-y:10px;width:clamp(150px,18vw,214px)}
-.motto-strip img:nth-child(2){--tilt:6deg;--shift-y:-8px}
-.motto-strip img:nth-child(3){--tilt:-3deg;--shift-x:8px;--shift-y:12px;width:clamp(122px,14vw,166px)}
-.motto-strip img:nth-child(4){--tilt:9deg;--shift-x:-6px;--shift-y:-4px;width:clamp(138px,15vw,178px)}
-.motto-strip img:nth-child(5){--tilt:-6deg;--shift-y:8px;width:clamp(124px,14vw,168px)}
+.motto-strip img:nth-child(1){top:-16px;left:4%;--tilt:-10deg;width:clamp(126px,15vw,182px)}
+.motto-strip img:nth-child(2){top:22px;right:7%;--tilt:8deg;width:clamp(116px,14vw,170px)}
+.motto-strip img:nth-child(3){top:43%;left:39%;--tilt:-5deg;--shift-x:-50%;--shift-y:-24px;width:clamp(96px,11vw,140px)}
+.motto-strip img:nth-child(4){bottom:18px;left:15%;--tilt:11deg;width:clamp(112px,13vw,158px)}
+.motto-strip img:nth-child(5){bottom:-6px;right:14%;--tilt:-8deg;width:clamp(102px,12vw,148px)}
 .motto-strip img:hover{
   transform:translate(var(--shift-x),calc(var(--shift-y) - 6px)) rotate(var(--tilt)) scale(1.05);
   filter:drop-shadow(0 16px 26px rgba(13,27,42,.17))
@@ -514,13 +517,11 @@ footer{background:var(--dark);color:rgba(255,255,255,.85);padding:80px 0 0}
 .team-section-group{margin-bottom:70px}
 .team-section-group:last-child{margin-bottom:0}
 .team-group-heading{
-  display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
-  border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:32px
+  border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:30px
 }
-.team-group-heading .section-label{margin-bottom:0}
 .team-group-heading h3{
   font-size:clamp(1.25rem,2.4vw,1.7rem);
-  color:var(--blue-dark);margin-left:auto;text-align:right
+  color:var(--blue-dark)
 }
 
 /* Team grid -- large cards */
@@ -557,7 +558,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.85);padding:80px 0 0}
 
 /* Large circular photo holder */
 .team-photo{
-  width:220px;height:220px;border-radius:50%;
+  width:178px;height:178px;border-radius:50%;
   margin:0 auto 28px;overflow:hidden;position:relative;
   border:5px solid var(--lavender);
   background:var(--lavender-bg)
@@ -751,8 +752,13 @@ footer{background:var(--dark);color:rgba(255,255,255,.85);padding:80px 0 0}
   .projects-grid{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr;gap:40px}
   .about-img-badge{bottom:-16px;left:16px}
-  .motto-strip{gap:10px 14px;margin-top:34px;padding:10px 0 4px}
-  .motto-strip img{height:96px;padding:6px}
+  .values-playground{padding-bottom:110px}
+  .motto-strip img{padding:4px;opacity:.82}
+  .motto-strip img:nth-child(1){top:-12px;left:-2px;width:108px}
+  .motto-strip img:nth-child(2){top:8px;right:2px;width:102px}
+  .motto-strip img:nth-child(3){top:44%;left:52%;width:88px}
+  .motto-strip img:nth-child(4){bottom:30px;left:10px;width:102px}
+  .motto-strip img:nth-child(5){bottom:12px;right:12px;width:92px}
   .gallery-marquee-shell{padding:0;margin-top:-12px}
   .gallery-marquee{
     -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 12%,#000 88%,transparent 100%);
@@ -785,15 +791,18 @@ footer{background:var(--dark);color:rgba(255,255,255,.85);padding:80px 0 0}
   .verify-card{padding:32px 24px}
   .footer-bottom{flex-direction:column;text-align:center}
   .team-section-group{margin-bottom:54px}
-  .team-group-heading{align-items:flex-start;flex-direction:column;gap:8px}
-  .team-group-heading h3{margin-left:0;text-align:left}
   .team-grid{grid-template-columns:repeat(2,1fr)}
   .team-card-has-bio{grid-column:span 2}
-  .team-photo{width:180px;height:180px}
+  .team-photo{width:150px;height:150px}
 }
 @media(max-width:480px){
   .values-grid{grid-template-columns:1fr 1fr}
-  .motto-strip img{width:clamp(110px,38vw,148px)}
+  .values-playground{padding-bottom:96px}
+  .motto-strip img:nth-child(1){width:92px}
+  .motto-strip img:nth-child(2){width:86px}
+  .motto-strip img:nth-child(3){width:74px}
+  .motto-strip img:nth-child(4){width:84px}
+  .motto-strip img:nth-child(5){width:78px}
   .hero-stat{flex:1 1 50%}
   .cta-banner{padding:36px 20px}
   .gallery-slide{flex-basis:242px;height:230px}
@@ -801,6 +810,6 @@ footer{background:var(--dark);color:rgba(255,255,255,.85);padding:80px 0 0}
   .gallery-slide strong{font-size:.9rem}
   .gallery-slide span{font-size:.72rem}
   .team-grid{grid-template-columns:1fr 1fr}
-  .team-photo{width:150px;height:150px}
+  .team-photo{width:124px;height:124px}
   .team-card{padding:32px 16px 28px}
 }
