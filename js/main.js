@@ -98,6 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* -- PARTNER LOGO MARQUEE -- */
   document.querySelectorAll('[data-partner-marquee]').forEach(marquee => {
+    if (marquee.dataset.partnerMarqueeReady === 'true') return;
+    marquee.dataset.partnerMarqueeReady = 'true';
+
     const viewport = marquee.querySelector('[data-partner-viewport]');
     const track = marquee.querySelector('[data-partner-track]');
     const prev = marquee.querySelector('[data-partner-prev]');
