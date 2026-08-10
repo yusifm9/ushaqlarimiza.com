@@ -11,23 +11,6 @@
   <link rel="stylesheet" href="css/style.css"/>
 
 
-  <style>
-    .partner-tier{margin-bottom:56px}
-    .partner-tier-label{
-      display:flex;align-items:center;gap:16px;margin-bottom:28px
-    }
-    .partner-tier-label h3{
-      font-size:.88rem;text-transform:uppercase;letter-spacing:.12em;
-      color:var(--muted);font-family:var(--font-body);font-weight:700;white-space:nowrap
-    }
-    .partner-tier-label::after{content:'';flex:1;height:1px;background:var(--border)}
-    .become-partner{
-      background:var(--lavender-bg);border:1px solid var(--lavender);
-      border-radius:var(--radius);padding:40px;text-align:center;margin-top:16px
-    }
-    .become-partner h3{margin-bottom:10px}
-    .become-partner p{color:var(--muted);max-width:440px;margin:0 auto 24px;font-size:.92rem;line-height:1.7}
-  </style>
 </head>
 <body>
 
@@ -81,180 +64,177 @@
 </section>
 
 <!-- ===== PARTNERS ===== -->
-<section class="section" aria-labelledby="partners-heading">
+<section class="section partners-showcase" aria-labelledby="partners-heading">
   <div class="container">
-
-    <!-- Media Partners -->
-    <div class="partner-tier">
-      <div class="partner-tier-label"><h3>Media Partners</h3></div>
-      <div class="partners-grid" role="list">
-        <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/AZTV.jpg" alt="AZTV" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">AZTV</div>
-        </div>
-        <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/AZTV_radio.jpg" alt="AZTV Radio" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">AZTV Radio</div>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/azertac.jpg" alt="AZERTAC News" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">AZERTAC News</div>
-        </div>
-        <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/bakuws.jpg" alt="BAKUWS TV" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">BAKUWS TV &amp; News</div>
-        </div>
-        <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/xezer.jpg" alt="Khazar TV" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Khazar TV</div>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/xezercenter.jpg" alt="Khazar Media Center" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Khazar Media Center</div>
-        </div>
-        <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/arazfm.jpg" alt="ARAZ FM" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">ARAZ FM Radio</div>
-        </div>
-        <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/apa.jpg" alt="APA News" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">APA News Agency</div>
-        </div>
-      </div>
+    <div class="section-header reveal">
+      <div class="section-label">Network</div>
+      <h2 class="section-title" id="partners-heading">Partners Moving With UO</h2>
+      <p class="section-sub">Schools, media platforms, companies, public institutions, and community groups that help us create stronger experiences for children.</p>
     </div>
 
-    <!-- Educational Partners -->
-    <div class="partner-tier">
-      <div class="partner-tier-label"><h3>Educational Partners</h3></div>
-      <div class="partners-grid" role="list">
-        <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/landau.jpg" alt="LANDAU School" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">LANDAU School</div>
-        </div>
-        <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/mtk.jpeg" alt="European Azerbaijan School" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">European Azerbaijan School</div>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/TISA.jpg" alt="TISA" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">The International School of Azerbaijan</div>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/isops.jpg" alt="ISOPS" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">ISOPS</div>
+    <div class="partner-marquee-shell reveal" data-partner-marquee>
+      <button class="partner-arrow partner-arrow-left" type="button" data-partner-prev aria-label="Show previous partners">&lsaquo;</button>
+      <div class="partner-marquee" data-partner-viewport aria-label="Partner logos carousel">
+        <div class="partner-track" data-partner-track role="list">
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/AZTV.jpg" alt="AZTV" loading="lazy"/></span>
+            <span class="partner-name">AZTV</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/AZTV_radio.jpg" alt="AZTV Radio" loading="lazy"/></span>
+            <span class="partner-name">AZTV Radio</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/medeniyyet-tv.png" alt="Medeniyyet TV" loading="lazy"/></span>
+            <span class="partner-name">Medeniyyet TV</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/azertac.jpg" alt="AZERTAC News" loading="lazy"/></span>
+            <span class="partner-name">AZERTAC News</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/bakuws.jpg" alt="BAKUWS TV" loading="lazy"/></span>
+            <span class="partner-name">BAKUWS TV &amp; News</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/xezer.jpg" alt="Khazar TV" loading="lazy"/></span>
+            <span class="partner-name">Khazar TV</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/xezercenter.jpg" alt="Khazar Media Center" loading="lazy"/></span>
+            <span class="partner-name">Khazar Media Center</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/arazfm.jpg" alt="ARAZ FM" loading="lazy"/></span>
+            <span class="partner-name">ARAZ FM Radio</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/apa.jpg" alt="APA News" loading="lazy"/></span>
+            <span class="partner-name">APA News Agency</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/landau.jpg" alt="LANDAU School" loading="lazy"/></span>
+            <span class="partner-name">LANDAU School</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/mtk.jpeg" alt="European Azerbaijan School" loading="lazy"/></span>
+            <span class="partner-name">European Azerbaijan School</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/TISA.jpg" alt="The International School of Azerbaijan" loading="lazy"/></span>
+            <span class="partner-name">The International School of Azerbaijan</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/isops.jpg" alt="ISOPS" loading="lazy"/></span>
+            <span class="partner-name">ISOPS</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/yelo.png" alt="YeloBank" loading="lazy"/></span>
+            <span class="partner-name">YeloBank</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/cinnabon.jpg" alt="Cinnabon" loading="lazy"/></span>
+            <span class="partner-name">Cinnabon</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/minisrtydigitaldev.jpg" alt="Ministry of Digital Development and Transport" loading="lazy"/></span>
+            <span class="partner-name">Ministry of Digital Development and Transport</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/eco.png" alt="Ministry of Ecology and Natural Resources" loading="lazy"/></span>
+            <span class="partner-name">Ministry of Ecology and Natural Resources</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/eng.jpg" alt="Ministry of Culture of the Republic of Azerbaijan" loading="lazy"/></span>
+            <span class="partner-name">Ministry of Culture of Azerbaijan</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/ex.jpg" alt="Extreme Hangout" loading="lazy"/></span>
+            <span class="partner-name">Extreme Hangout</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/unitednations.jpg" alt="United Nations" loading="lazy"/></span>
+            <span class="partner-name">United Nations</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/child&youth.jpg" alt="UN Major Group for Children and Youth" loading="lazy"/></span>
+            <span class="partner-name">UN Major Group for Children and Youth</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/UMID.png" alt="Umid Var" loading="lazy"/></span>
+            <span class="partner-name">Umid Var</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/umid.jpeg" alt="Umid Yeri Community" loading="lazy"/></span>
+            <span class="partner-name">Umid Yeri Community</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/autism.jpeg" alt="Public Union for Support to Children with Autism" loading="lazy"/></span>
+            <span class="partner-name">Support to Children with Autism</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/YOS.jpg" alt="Youth Ambassadors Society" loading="lazy"/></span>
+            <span class="partner-name">Youth Ambassadors Society</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/nasa.jpg" alt="NASA Space Apps Baku" loading="lazy"/></span>
+            <span class="partner-name">NASA Space Apps Baku</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/siemens.jpg" alt="ERP Systems and Siemens" loading="lazy"/></span>
+            <span class="partner-name">ERP Systems &amp; Siemens</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/new_zeon.jpg" alt="New Zeon" loading="lazy"/></span>
+            <span class="partner-name">New Zeon</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/summer_school.jpg" alt="Summer School Azerbaijan" loading="lazy"/></span>
+            <span class="partner-name">Summer School Azerbaijan</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/landmark.jpeg" alt="The Landmark Hotel Baku" loading="lazy"/></span>
+            <span class="partner-name">The Landmark Hotel Baku</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/bakuexpo.jpg" alt="Baku Expo Center" loading="lazy"/></span>
+            <span class="partner-name">Baku Expo Center</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/azercosmos.jpg" alt="Azercosmos" loading="lazy"/></span>
+            <span class="partner-name">Azercosmos</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/the_entertainer.jpg" alt="The Entertainer" loading="lazy"/></span>
+            <span class="partner-name">The Entertainer</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/novco.jpg" alt="Novco" loading="lazy"/></span>
+            <span class="partner-name">NOVCO Group of Companies</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/azercell.jpg" alt="Azercell" loading="lazy"/></span>
+            <span class="partner-name">Azercell Volunteers</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/medinex.jpg" alt="Medinex" loading="lazy"/></span>
+            <span class="partner-name">Medinex</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/karabakh.png" alt="Rebuild Karabakh" loading="lazy"/></span>
+            <span class="partner-name">Rebuild Karabakh</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/fusion.jpg" alt="Fusion Club Events" loading="lazy"/></span>
+            <span class="partner-name">Fusion Club Events</span>
+          </article>
+          <article class="partner-slide" role="listitem">
+            <span class="partner-logo-frame"><img class="partner-logo-img" src="images/partners/zilli.png" alt="Zilli" loading="lazy"/></span>
+            <span class="partner-name">Zilli</span>
+          </article>
         </div>
       </div>
-    </div>
-
-    <!-- Our Partners -->
-    <div class="partner-tier">
-      <div class="partner-tier-label"><h3>Our Partners</h3></div>
-      <div class="partners-grid" role="list">
-        <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/yelo.png" alt="YeloBank" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">YeloBank</div>
-        </div>
-        <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/cinnabon.jpg" alt="Cinnabon" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Cinnabon</div>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/minisrtydigitaldev.jpg" alt="Ministry of Digital Development and Transport" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Ministry of Digital Development and Transport</div>
-        </div>
-        <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/eco.png" alt="Ministry of Ecology and Natural Resources" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Ministry of Ecology and Natural Resources</div>
-        </div>
-        <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/eng.jpg" alt="Ministry of Culture of the Republic of Azerbaijan" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Ministry of Culture of the Republic of Azerbaijan</div>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/ex.jpg" alt="Extreme Hangout" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Extreme Hangout</div>
-        </div>
-        <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/unitednations.jpg" alt="United Nations" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">United Nations</div>
-        </div>
-        <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/child&youth.jpg" alt="UN Major Group for Children and Youth" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">UN Major Group for Children and Youth</div>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/UMID.png" alt="Umid Var" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Umid Var</div>
-        </div>
-        <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/umid.jpeg" alt="Umid Yeri Community" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Umid Yeri Community</div>
-        </div>
-        <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/autism.jpeg" alt="Public Union for Support to Children with Autism" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Public Union for Support to Children with Autism</div>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/YOS.jpg" alt="Youth Ambassadors Society" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Youth Ambassadors Society</div>
-        </div>
-        <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/nasa.jpg" alt="NASA Space Apps Baku" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">NASA Space Apps Baku</div>
-        </div>
-        <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/siemens.jpg" alt="ERP Systems and Siemens" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">ERP Systems &amp; Siemens</div>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/new_zeon.jpg" alt="New Zeon" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">New Zeon</div>
-        </div>
-        <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/summer_school.jpg" alt="Summer School Azerbaijan" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Summer School Azerbaijan</div>
-        </div>
-        <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/landmark.jpeg" alt="The Landmark Hotel Baku" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">The Landmark Hotel Baku</div>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/bakuexpo.jpg" alt="Baku Expo Center" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Baku Expo Center</div>
-        </div>
-        <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/azercosmos.jpg" alt="Azercosmos" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Azercosmos</div>
-        </div>
-        <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/the_entertainer.jpg" alt="The Entertainer" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">The Entertainer</div>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/novco.jpg" alt="Novco" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">NOVCO Group of Companies</div>
-        </div>
-        <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/azercell.jpg" alt="Azercell" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Azercell Volunteers</div>
-        </div>
-        <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/medinex.jpg" alt="Medinex" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Medinex</div>
-        </div>
-        <div class="partner-card reveal reveal-d2" role="listitem">
-          <img class="partner-logo" src="images/partners/karabakh.png" alt="Rebuild Karabakh" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Rebuild Karabakh</div>
-        </div>
-        <div class="partner-card reveal" role="listitem">
-          <img class="partner-logo" src="images/partners/fusion.jpg" alt="Fusion Club Events" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Fusion Club Events</div>
-        </div>
-        <div class="partner-card reveal reveal-d1" role="listitem">
-          <img class="partner-logo" src="images/partners/zilli.png" alt="Zilli" width="220" height="80" loading="lazy"/>
-          <div class="partner-name">Zilli</div>
-        </div>
-      </div>
+      <button class="partner-arrow partner-arrow-right" type="button" data-partner-next aria-label="Show next partners">&rsaquo;</button>
     </div>
 
     <div class="become-partner reveal">

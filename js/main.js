@@ -96,6 +96,69 @@ document.addEventListener('DOMContentLoaded', () => {
     hideBroken();
   });
 
+  /* -- PARTNER LOGO MARQUEE -- */
+  document.querySelectorAll('[data-partner-marquee]').forEach(marquee => {
+    const viewport = marquee.querySelector('[data-partner-viewport]');
+    const track = marquee.querySelector('[data-partner-track]');
+    const prev = marquee.querySelector('[data-partner-prev]');
+    const next = marquee.querySelector('[data-partner-next]');
+    if (!viewport || !track) return;
+
+    Array.from(track.children).forEach(item => {
+      const clone = item.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+
+    let singleWidth = 0;
+    let pauseUntil = 0;
+    const defaultDirection = -1;
+    let direction = defaultDirection;
+    const speed = 1.15;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const measure = () => {
+      singleWidth = track.scrollWidth / 2;
+      if (singleWidth > 0 && viewport.scrollLeft === 0) viewport.scrollLeft = singleWidth;
+    };
+
+    const wrap = () => {
+      if (!singleWidth) return;
+      if (viewport.scrollLeft <= 0) viewport.scrollLeft += singleWidth;
+      if (viewport.scrollLeft >= singleWidth) viewport.scrollLeft -= singleWidth;
+    };
+
+    const nudge = sign => {
+      measure();
+      const distance = Math.min(380, Math.max(220, viewport.clientWidth * 0.45));
+      if (sign < 0 && viewport.scrollLeft < distance) viewport.scrollLeft += singleWidth;
+      if (sign > 0 && viewport.scrollLeft > singleWidth - distance) viewport.scrollLeft -= singleWidth;
+      direction = sign;
+      pauseUntil = performance.now() + 850;
+      viewport.scrollBy({ left: sign * distance, behavior: 'smooth' });
+      window.setTimeout(() => {
+        wrap();
+        direction = defaultDirection;
+      }, 900);
+    };
+
+    prev?.addEventListener('click', () => nudge(-1));
+    next?.addEventListener('click', () => nudge(1));
+    window.addEventListener('resize', measure, { passive: true });
+
+    measure();
+    if (!reduceMotion) {
+      const animate = time => {
+        if (time > pauseUntil) {
+          viewport.scrollLeft += direction * speed;
+          wrap();
+        }
+        requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    }
+  });
+
   /* -- CONTACT FORM -- */
   const contactForms = document.querySelectorAll('.contact-form');
   contactForms.forEach(contactForm => {
