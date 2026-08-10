@@ -218,16 +218,27 @@ h4{font-size:1rem;font-weight:600}
 .value-name{font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:8px}
 .value-desc{font-size:.875rem;color:var(--muted);line-height:1.6}
 .motto-strip{
-  max-width:1040px;margin:44px auto 0;
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:18px;align-items:center
+  max-width:1040px;margin:42px auto 0;padding:18px 8px 10px;
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+  gap:clamp(10px,2.6vw,28px)
 }
 .motto-strip img{
-  width:100%;height:118px;object-fit:contain;
-  padding:10px;border-radius:var(--radius-sm);
+  --tilt:0deg;--shift-x:0;--shift-y:0;
+  width:clamp(132px,16vw,188px);height:128px;object-fit:contain;
+  padding:8px;border-radius:var(--radius-sm);
   filter:drop-shadow(0 10px 18px rgba(13,27,42,.10));
+  transform:translate(var(--shift-x),var(--shift-y)) rotate(var(--tilt));
   transition:transform var(--dur) var(--ease),filter var(--dur) var(--ease)
 }
-.motto-strip img:hover{transform:translateY(-3px);filter:drop-shadow(0 14px 24px rgba(13,27,42,.16))}
+.motto-strip img:nth-child(1){--tilt:-8deg;--shift-y:10px;width:clamp(150px,18vw,214px)}
+.motto-strip img:nth-child(2){--tilt:6deg;--shift-y:-8px}
+.motto-strip img:nth-child(3){--tilt:-3deg;--shift-x:8px;--shift-y:12px;width:clamp(122px,14vw,166px)}
+.motto-strip img:nth-child(4){--tilt:9deg;--shift-x:-6px;--shift-y:-4px;width:clamp(138px,15vw,178px)}
+.motto-strip img:nth-child(5){--tilt:-6deg;--shift-y:8px;width:clamp(124px,14vw,168px)}
+.motto-strip img:hover{
+  transform:translate(var(--shift-x),calc(var(--shift-y) - 6px)) rotate(var(--tilt)) scale(1.05);
+  filter:drop-shadow(0 16px 26px rgba(13,27,42,.17))
+}
 
 /* ===== ABOUT ===== */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
@@ -499,21 +510,18 @@ footer{background:var(--dark);color:rgba(255,255,255,.85);padding:80px 0 0}
 .page-hero-content{position:relative;z-index:1}
 
 /* ===== TEAM PAGE ===== */
-.team-tabs{
-  display:flex;gap:8px;flex-wrap:wrap;margin-bottom:48px;
-  border-bottom:2px solid var(--border)
+.team-page-section .section-header{margin-bottom:54px}
+.team-section-group{margin-bottom:70px}
+.team-section-group:last-child{margin-bottom:0}
+.team-group-heading{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
+  border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:32px
 }
-.tab-btn{
-  padding:12px 24px;border-radius:10px 10px 0 0;
-  border:2px solid transparent;border-bottom:none;
-  background:transparent;font-family:var(--font-body);font-size:.9rem;font-weight:600;
-  color:var(--muted);cursor:pointer;transition:all var(--dur) var(--ease);
-  position:relative;bottom:-2px
+.team-group-heading .section-label{margin-bottom:0}
+.team-group-heading h3{
+  font-size:clamp(1.25rem,2.4vw,1.7rem);
+  color:var(--blue-dark);margin-left:auto;text-align:right
 }
-.tab-btn:hover{color:var(--blue);background:var(--lavender-bg)}
-.tab-btn.active{color:var(--blue-dark);background:#fff;border-color:var(--border) var(--border) #fff}
-.team-panel{display:none}
-.team-panel.active{display:block}
 
 /* Team grid -- large cards */
 .team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:32px}
@@ -727,7 +735,6 @@ footer{background:var(--dark);color:rgba(255,255,255,.85);padding:80px 0 0}
   .footer-grid{grid-template-columns:1fr 1fr;gap:36px}
   .news-grid{grid-template-columns:repeat(2,1fr)}
   .faq-grid{grid-template-columns:1fr}
-  .motto-strip{grid-template-columns:repeat(2,1fr)}
   .cta-with-image{grid-template-columns:1fr;padding:46px 34px}
 }
 @media(max-width:1100px){
@@ -744,7 +751,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.85);padding:80px 0 0}
   .projects-grid{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr;gap:40px}
   .about-img-badge{bottom:-16px;left:16px}
-  .motto-strip{gap:12px;margin-top:34px}
+  .motto-strip{gap:10px 14px;margin-top:34px;padding:10px 0 4px}
   .motto-strip img{height:96px;padding:6px}
   .gallery-marquee-shell{padding:0;margin-top:-12px}
   .gallery-marquee{
@@ -777,15 +784,17 @@ footer{background:var(--dark);color:rgba(255,255,255,.85);padding:80px 0 0}
   .verify-field-group{flex-direction:column}
   .verify-card{padding:32px 24px}
   .footer-bottom{flex-direction:column;text-align:center}
+  .team-section-group{margin-bottom:54px}
+  .team-group-heading{align-items:flex-start;flex-direction:column;gap:8px}
+  .team-group-heading h3{margin-left:0;text-align:left}
   .team-grid{grid-template-columns:repeat(2,1fr)}
   .team-card-has-bio{grid-column:span 2}
   .team-photo{width:180px;height:180px}
 }
 @media(max-width:480px){
   .values-grid{grid-template-columns:1fr 1fr}
-  .motto-strip{grid-template-columns:1fr 1fr}
+  .motto-strip img{width:clamp(110px,38vw,148px)}
   .hero-stat{flex:1 1 50%}
-  .tab-btn{padding:10px 14px;font-size:.82rem}
   .cta-banner{padding:36px 20px}
   .gallery-slide{flex-basis:242px;height:230px}
   .gallery-slide figcaption{left:16px;right:16px;bottom:15px}
